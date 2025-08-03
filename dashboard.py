@@ -83,7 +83,7 @@ sns.boxplot(x='Severity', y='Temperature(F)', data=df)
 plt.title('Severity vs Temperature')
 
 # 9. Severity by Weather Condition
-plt.subplot(4, 4, 9)
+plt.subplot(4, 4, 13)
 severity_weather = df.groupby('Weather_Condition')['Severity'].mean().sort_values(ascending=False).head(15)
 severity_weather.plot(kind='barh')
 plt.title('Avg Severity by Weather Condition')
@@ -92,14 +92,14 @@ plt.ylabel('Weather Condition')
 plt.tick_params(axis='y', labelsize=6)
 
 # 10. Top Streets
-plt.subplot(4, 4, 10)
+plt.subplot(4, 4, 14)
 top_streets = df['Street'].value_counts().head(10)
 top_streets.plot(kind='bar', color='firebrick')
 plt.title('Top 10 Streets')
 plt.xticks(rotation=45, fontsize=6)
 
-# 11. Prediction Graph (example for top 3 weather conditions)
-plt.subplot(4, 4, 11)
+# 11. Prediction Graph
+plt.subplot(4, 4, 15)
 top_weather = df['Weather_Condition'].value_counts().head(3).index
 monthly_periods = df['Month'].sort_values().unique()
 month_labels = [str(m) for m in monthly_periods]
